@@ -1,0 +1,37 @@
+server:
+  port: 9090
+
+spring:
+  data:
+    rest:
+      base-path: /api
+
+  datasource:
+    url: jdbc:h2:mem:library;MODE=postgresql
+    initialization-mode: always
+    
+  liquibase:
+    enabled: true
+    
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+    
+# Logging configuration print only messages for tutorial purposes
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO
+
+app:
+  secure: false
+
+        
+

@@ -1,0 +1,1 @@
+Module responsible for registering delivery modules and sending messages using delivery modules

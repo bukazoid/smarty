@@ -1,0 +1,1 @@
+locations controller is based on reast api repository, check /api for more info

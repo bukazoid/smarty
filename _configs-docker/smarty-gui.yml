@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  rabbitmq:
+    host: rabbit-mq
+
+  redis:
+    host: redis
+    port: 6379
+
+  data:
+    rest:
+      base-path: /api
+
+  datasource:
+    url: jdbc:postgresql://storage-db:5432/smarty
+    username: postgres
+    password: postgres
+    initialization-mode: always
+    
+  liquibase:
+    enabled: true
+    
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    
+# Logging configuration print only messages for tutorial purposes
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO

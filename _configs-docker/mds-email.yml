@@ -1,0 +1,18 @@
+spring:
+
+  profiles:
+    active: default
+
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration    
+
+  rabbitmq:
+    addresses: "localhost"
+
+server:
+  port: 8885
+
+logging:
+  level: 
+    root: INFO

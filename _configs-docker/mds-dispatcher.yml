@@ -1,0 +1,14 @@
+spring:
+
+  profiles:
+    active: default
+    
+  rabbitmq:
+    addresses: "localhost"
+
+server:
+  port: 8884
+
+logging:
+  level: 
+    root: INFO

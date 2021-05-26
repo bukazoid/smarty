@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: default
+  rabbitmq:
+    addresses: "rabbit-mq"
+
+server:
+  port: 8881
+
+logging:
+  level: 
+    root: INFO
+    
+mqtt:
+  uri: tcp://192.168.112.71:1883
+  client-id: smarty-docker-local

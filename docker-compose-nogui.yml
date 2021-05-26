@@ -1,0 +1,91 @@
+version: '3'
+services:
+### config-server 
+  config-server:
+    build:
+      context: ./config-server
+      dockerfile: Dockerfile
+    image: smarty/config-server
+    volumes:
+      - /opt/smarty/config-docker:/opt/smarty/config
+#    ports:
+#      - "8888:8888"
+    networks:
+      - smarty-network
+      
+### mqtt-plant
+  mqtt-plant:
+    build:
+#WARN: slightly unexpected path
+      context: ./mqtt-plant-client
+      dockerfile: Dockerfile
+    image: smarty/mqtt-plant
+    networks:
+      - smarty-network
+    depends_on:
+      - rabbit-mq
+      - config-server
+
+### message-processor
+  message-processor:
+    build:
+      context: ./message-processor
+      dockerfile: Dockerfile
+    image: smarty/message-processor
+    networks:
+      - smarty-network
+    depends_on:
+      - redis
+      - rabbit-mq
+      - storage-db
+      - config-server
+    environment:
+      - WAIT_FOR=rabbit-mq:5672
+
+### GUI      
+#  smarty-gui:
+#    build:
+#      context: ./smarty-gui
+#      dockerfile: Dockerfile
+#    image: smarty/smarty-gui
+#    networks:
+#      - smarty-network
+#    ports:
+#      - "8080:8080"      
+#    depends_on:
+#      - redis
+#      - rabbit-mq
+#      - storage-db
+#      - config-server
+
+### rabbitMQ
+  rabbit-mq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+####    management:
+      - "15672:15672"
+    networks:
+      - smarty-network
+
+### postgres/storage/config        
+  storage-db:
+    image: "postgres"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=smarty
+    networks:
+      - smarty-network
+### redis      
+  redis:
+    image: "redis"
+    ports:
+        - '6379:6379'
+    networks:
+      - smarty-network
+      
+networks:
+  smarty-network:

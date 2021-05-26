@@ -1,0 +1,13 @@
+server:
+  port: 8886
+
+spring:
+
+  datasource:
+    url: jdbc:postgresql://storage-db:5432/smarty
+    username: postgres
+    password: postgres
+    initialization-mode: always
+    
+  liquibase:
+    enabled: true

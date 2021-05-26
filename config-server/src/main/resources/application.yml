@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+#          uri: file:///opt/smarty/config/ # NOT OK
+          search-locations: /opt/smarty/config/ 
+#           search-locations: classpath:/config
+
+server:
+  port: 8888

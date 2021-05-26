@@ -1,0 +1,14 @@
+spring:
+
+  profiles:
+    active: default
+    
+  rabbitmq:
+    addresses: "rabbit-mq"
+
+server:
+  port: 8883
+
+logging:
+  level: 
+    root: INFO

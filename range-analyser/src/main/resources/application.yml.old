@@ -1,0 +1,23 @@
+spring:
+
+  profiles:
+    active: default
+    
+  rabbitmq:
+    addresses: "localhost"
+    
+  datasource:
+    url: jdbc:postgresql://localhost:5432/smarty
+    username: postgres
+    password: postgres
+    initialization-mode: always
+    
+  liquibase:
+    enabled: true
+
+server:
+  port: 8882
+
+logging:
+  level: 
+    root: INFO

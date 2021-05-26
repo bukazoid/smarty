@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bukazoid.smarty</groupId>
+    <artifactId>smart-home</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+	<modules>
+		<module>config-server</module>
+		<module>domain</module>
+		<module>domain-storage</module>
+		<module>mds-dispatcher</module>
+		<module>mds-email</module>
+		<module>message-processor</module>
+		<module>mqtt-plant-client</module>
+		<module>range-analyser</module>
+		<module>smarty-gui</module>
+		<module>db-init</module>
+		<!--
+		<module>yandex-oauth</module>
+		-->
+	</modules>
+
+</project>
