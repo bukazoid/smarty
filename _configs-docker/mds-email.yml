@@ -8,7 +8,20 @@ spring:
       - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration    
 
   rabbitmq:
-    addresses: "localhost"
+    addresses: "rabbit-mq"
+
+  mail:
+    host: {mail.server}
+    port: 25
+    # логин и пароль для почты, через которую сервер отправляет письма
+    username: {username2auth}
+    password: {pasword2auth}
+    protocol: smtps
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
 
 server:
   port: 8885
@@ -16,3 +29,10 @@ server:
 logging:
   level: 
     root: INFO
+
+app:
+  sender-email: {senderemail}
+  emulate: false
+
+
+

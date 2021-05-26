@@ -4,7 +4,11 @@ spring:
     active: default
     
   rabbitmq:
-    addresses: "localhost"
+    addresses: "rabbit-mq" 
+
+  redis:
+    host: redis
+    port: 6379
 
 server:
   port: 8884
